@@ -1,0 +1,15 @@
+Dell PowerEdge R760 Technical Manual
+
+Section 1: Power Supply Unit (PSU) Diagnostics
+The PowerEdge R760 utilizes dual redundant 1100W PSUs. Normal operation power draw is directly correlated with CPU and memory utilization. A sudden spike in power without a corresponding increase in utilization can indicate a PSU fault. Check the PSU status LED. A blinking amber light indicates a fault. To troubleshoot, perform a cold reboot. If the issue persists, reseat the PSU. If both PSUs show faults, check the main power distribution unit.
+
+Section 2: CPU and Thermal Management
+CPU utilization above 95% for extended periods will trigger thermal throttling to prevent damage. This will manifest as a performance decrease while power draw remains high. Ensure ambient temperature is within operational limits (10°C to 35°C). Check that all cooling fans are operational. iDRAC logs will show specific fan failures. High power draw at low utilization might indicate a firmware issue; ensure BIOS and iDRAC firmware are updated to the latest version.
+
+Section 3: Memory (RAM) Errors
+Memory errors can cause unpredictable system behavior. A common symptom is a system halt or reboot, which may appear in logs as a sudden drop in utilization and power. Run the built-in memory diagnostics from the lifecycle controller. A faulty DIMM may not draw significantly more power but will cause instability. Reseating memory modules can often resolve connection issues.
+
+Section 4: Common Anomaly Signatures
+- High Power, Low Utilization: Potential firmware bug, PSU inefficiency, or thermal throttling issue. First step: check iDRAC logs for thermal or fan events. Second step: apply latest firmware updates.
+- Power Spikes, Stable Utilization: Likely a failing PSU component or unstable external power source. First step: isolate the server on a different PDU. Second step: swap PSUs one by one.
+- Utilization Drops to Zero, Power Drops: System crash or unexpected reboot. First step: check OS-level kernel dump files. Second step: run memory and storage diagnostics.
