@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+plotly
+scikit-learn
+langchain
+langchain-community
+faiss-cpu
+sentence-transformers
+requests
